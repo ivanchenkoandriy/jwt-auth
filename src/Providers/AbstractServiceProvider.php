@@ -309,7 +309,7 @@ abstract class AbstractServiceProvider extends ServiceProvider
             $factory = new ClaimFactory($app['request']);
             $app->refresh('request', $factory, 'setRequest');
 
-            return $factory->setTTL($this->config('ttl'))
+            return $factory->setTTL((int)$this->config('ttl'))
                            ->setLeeway($this->config('leeway'));
         });
     }
